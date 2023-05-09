@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/images/logo.webp" type="image/x-icon">
+    <link rel="stylesheet" href="/styles/main.css">
+    <title>Notre site - Users</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('../../components/header') %>
+        
+        <% if (successDeleteUser) { %>
+            <div role="alert">
+              <%= successDeleteUser %>
+            </div>
+        <% } %>
+        <h1>Page Users</h1>
+        <a href="/users/create">Ajouter un utilisateur</a>
+        <% if(users) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom & Prénom</th>
+                        <th>Date de naissance</th>
+                        <th>Email</th>
+                        <th>Adresse</th>
+                        <th>Option</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(user => { %>
+                        <tr>
+                            <td><a href="/users/<%= user._id %>"><%= user.lastname %> <%= user.firstname %></a></td>
+                            <td><%= new Date(user.birth).toLocaleDateString() %></td>
+                            <td><%= user.email %></td>
+                            <td><%= user.address.street%><br><%= user.address.zipcode %> <%= user.address.city %></td>
+                            <td><a href="/users/<%= user._id %>/delete">Supprimer</a></td>
+                        </tr>
+                    <% }) %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+</body>
+</html>

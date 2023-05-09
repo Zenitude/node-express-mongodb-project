@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../../components/metas') %>
+    <title>Notre site - Supprimer un utilisateur</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('../../components/header') %>
+
+        <% if(user) { %>
+        <h1>Suppression de <%= user.lastname %> <%= user.firstname %></h1>
+        <h2>Êtes-vous sûr de vouloir supprimer cet utilisateur ?</h2>
+        <form action="/users/<%= user._id %>/delete?_method=DELETE" method="POST">
+            <button class="back">Annuler</button>
+            <button>Confirmer</button>
+        </form>
+        <% } %>
+    </div>
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

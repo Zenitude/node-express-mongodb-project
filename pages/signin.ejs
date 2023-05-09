@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('./components/metas') %>
+    <title>Notre site - Connexion</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('./components/header') %>
+
+        <h1>Formulaire de connexion</h1>
+        <form action="/signin/login" method="POST">
+            <div>
+                <label htmlFor="email">E-mail</label>
+                <input type="text" name="email" id="email" placeholder="example@domaine.ext"/>
+            </div>
+
+            <div>
+                <label htmlFor="password">Mot de passe</label>
+                <input type="password" name="password" id="password"/>
+            </div>
+            <button>Se connecter</button>
+        </form>
+        <p>Pas de compte ? <a href="/signup">Inscrivez-vous</a></p>
+    </div>
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

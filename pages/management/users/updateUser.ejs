@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('../../components/metas') %>
+    <title>Notre site - Créer un utilisateur</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('../../components/header') %>
+
+        <% if (successUpdateUser) { %>
+            <div role="alert">
+              <%= successUpdateUser %>
+            </div>
+        <% } %>
+        <% if (user) { %>
+            <h1>Mise à jour de <%= user.lastname %> <%= user.firstname %></h1>
+            <form action="/users/<%= user._id %>/update?_method=PUT" method="POST">
+
+                
+                <div>
+                    <label htmlFor="lastname">Nom</label>
+                    <input type="text" name="lastname" id="lastname" placeholder="Votre nom" value="<%= user.lastname %>" />
+                </div>
+
+                <div>
+                    <label htmlFor="firstname">Prénom</label>
+                    <input type="text" name="firstname" id="firstname" placeholder="Votre prénom" value="<%= user.firstname %>"/>
+                </div>
+
+                <div>
+                    <label htmlFor="email">E-mail</label>
+                    <input type="text" name="email" id="email" placeholder="example@domaine.ext" value="<%= user.email %>"/>
+                </div>
+
+                <div>
+                    <label htmlFor="birth">Date de naissance</label>
+                    <input type="date" name="birth" id="birth" value="<%= user.birth.toISOString().substr(0, 10) %>"/>
+                </div>
+
+                <div>
+                    <label htmlFor="street">N° et Nom de voie</label>
+                    <input type="text" name="street" id="street" placeholder="1 rue du Général de Gaulle" value="<%= user.address.street %>"/>
+                </div>
+
+                <div>
+                    <label htmlFor="zipcode">Code Postal</label>
+                    <input type="text" name="zipcode" id="zipcode" placeholder="59400" value="<%= user.address.zipcode %>"/>
+                </div>
+
+                <div>
+                    <label htmlFor="city">Commune</label>
+                    <input type="text" name="city" id="city" placeholder="Cambrai" value="<%= user.address.city %>"/>
+                </div>
+                <button>Mettre à jour</button>
+            </form>
+        <% } %>
+    </div>
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('./pages/components/metas') %>
+    <title>Notre site - Accueil</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('./pages/components/header') %>
+        <h1>Page Accueil</h1>
+        <% if(userConnected) { %>
+            <p><%= userConnected %></p>
+        <% } %>
+        <img src="/images/logo.webp" alt="ma petite description">
+    </div>
+</body>
+</html>

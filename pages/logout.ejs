@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./components/metas') %>
+    <title>Notre site - Déconnexion</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('./components/header') %>
+
+        <h1>Déconnexion</h1>
+        <h2>Voulez-vous réellement nous quitter ?</h2>
+        <form action="/logout/disconnect" method="POST">
+            <button class="back">Annuler</button>
+            <button>Confirmer</button>
+        </form>
+    </div>
+    
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

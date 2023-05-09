@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('../../components/metas') %>
+    <title>Notre site - Créer un utilisateur</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('../../components/header') %>
+
+        <% if (user) { %>
+            <h1>Détails de <%= user.lastname %> <%= user.firstname %></h1>
+            <ul>
+                <li>Nom : <%= user.lastname %></li>
+                <li>Prénom : <%= user.firstname %></li>
+                <li>Date de naissance : <%= new Date(user.birth).toLocaleDateString() %></li>
+                <li>Email : <%= user.email %></li>
+                <li>Adresse : </li>
+                <ul>
+                    <li>N° et Nom de voie : <%= user.address.street %></li>
+                    <li>Code Postal : <%= user.address.zipcode %></li>
+                    <li>Commune : <%= user.address.city %></li>
+
+                </ul>
+            </ul>
+            <a href="/users/<%= user._id %>/update">Modifier</a>
+            <a href="/users/<%= user._id %>/delete">Supprimer</a>
+
+        <% } %>
+        
+    </div>
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

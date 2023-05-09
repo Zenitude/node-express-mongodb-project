@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <%- include('../../components/metas') %>
+    <title>Notre site - Créer un utilisateur</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('../../components/header') %>
+
+        <% if (successCreateUser) { %>
+            <div role="alert">
+              <%= successCreateUser %>
+            </div>
+        <% } %>
+        <h1>Créer un utilisateur</h1>
+        <form action="/users/create" method="POST">
+            <div>
+                <label htmlFor="lastname">Nom</label>
+                <input type="text" name="lastname" id="lastname" placeholder="Votre nom" />
+            </div>
+
+            <div>
+                <label htmlFor="firstname">Prénom</label>
+                <input type="text" name="firstname" id="firstname" placeholder="Votre prénom "/>
+            </div>
+
+            <div>
+                <label htmlFor="email">E-mail</label>
+                <input type="text" name="email" id="email" placeholder="example@domaine.ext"/>
+            </div>
+
+            <div>
+                <label htmlFor="birth">Date de naissance</label>
+                <input type="date" name="birth" id="birth" />
+            </div>
+
+            <div>
+                <label htmlFor="password">Mot de passe</label>
+                <input type="password" name="password" id="password"/>
+            </div>
+
+            <div>
+                <label htmlFor="street">N° et Nom de voie</label>
+                <input type="text" name="street" id="street" placeholder="1 rue du Général de Gaulle"/>
+            </div>
+
+            <div>
+                <label htmlFor="zipcode">Code Postal</label>
+                <input type="text" name="zipcode" id="zipcode" placeholder="59400"/>
+            </div>
+
+            <div>
+                <label htmlFor="city">Commune</label>
+                <input type="text" name="city" id="city" placeholder="Cambrai" />
+            </div>
+            <button>Créer</button>
+        </form>
+    </div>
+    <script src="/scripts/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<header>
+    <nav>
+        <a href="/">Accueil</a>
+        <a href="/contact">Contact</a>
+        <% if(!userConnected) { %>
+            <a href="/signin">Connexion</a>
+        <% } else { %>
+            <a href="/users">Utilisateurs</a>
+            <a href="/logout">Déconnexion</a>
+        <% } %>
+    </nav>
+</header>
